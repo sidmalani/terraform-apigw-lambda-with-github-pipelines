@@ -5,6 +5,7 @@ API Gateway -> Lambda -> Database with RDS proxy, fully terraformed.
 - Github pipeline example for lambda and lambda example code.
 - RDS and RDS proxy to be added.
 - Secrets manager to hold db pwds to be created.
+- Websockets integration example.
 
 ## Prerequisites
 - Create a VPC with private and public subnets.

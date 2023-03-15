@@ -1,6 +1,10 @@
 # terraform-apigw-lambda-with-github-pipelines
 API Gateway -> Lambda -> Database with RDS proxy, fully terraformed. 
 
+## TODO
+- Github pipelines.
+- RDS and RDS proxy to be added.
+- Secrets manager to hold db pwds to be created.
 
 ## Prerequisites
 - Create a VPC with private and public subnets.

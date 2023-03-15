@@ -1,2 +1,44 @@
 # terraform-apigw-lambda-with-github-pipelines
 API Gateway -> Lambda -> Database with RDS proxy, fully terraformed. 
+
+
+## Prerequisites
+- Create a VPC with private and public subnets
+- Create a database and database proxy
+
+
+## Create a terraform workspace and set the following variables. 
+You can also create a .tfvars file in your repo to set the versions and other static defaults. Passwords should be set as sensitive variables accessible to the terraform workspace.
+
+### environment 
+Environment Name (dev/test/uat etc)
+
+### app
+Application unique name
+
+### vpc_id
+VPC Id
+
+### subnet_ids
+Public subnet ids as list
+
+### private_subnet_ids
+Private subnet ids as list
+
+### database
+Database name
+
+### db_host
+Database host (or db proxy host)
+
+### db_port
+Database port (or db proxy port)
+
+### db_username
+Database username
+
+### db_password
+Database password (for password based auth)
+
+### sample_api_version
+Api version of sample api (GIT SHA of each api lambda)

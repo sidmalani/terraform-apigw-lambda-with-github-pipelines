@@ -4,6 +4,7 @@ API Gateway -> Lambda -> Database with RDS proxy, fully terraformed.
 ## TODO
 - Github pipeline example for lambda and lambda example code.
 - RDS and RDS proxy to be added.
+- Support for nested APIs will be added soon.
 - Secrets manager to hold db pwds to be created.
 - Websockets integration example.
 
@@ -24,7 +25,7 @@ S3 key for the specific api lambda | api-artifacts/api-<<var.api_name>>-<<var.ap
 - API GW and Lambda Proxy integration.
 - API is a module with lambda so additional APIs can be created easily.
 - NAT gateway with spot instances. If you have NAT already you can remove it from the code.
-- Support for nested APIs will be added soon.
+
 
 
 ## Create a terraform workspace and set the following variables. 

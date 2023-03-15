@@ -60,3 +60,18 @@ Database password (for password based auth)
 
 ### sample_api_version
 Api version of sample api (GIT SHA of each api lambda)
+
+
+## To add more apis simply extend the map in the meta.tf by adding the api meta block as needed
+```
+    login : {
+      "method" : "POST",
+      "api_version" : var.login_api_version
+    },
+    logout : {
+      "method" : "POST",
+      "api_version" : var.logout_api_version
+    },
+    ...
+
+```

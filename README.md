@@ -11,10 +11,11 @@ API Gateway -> Lambda -> Database with RDS proxy, fully terraformed.
 - Create a VPC with private and public subnets.
 - Create a database and database proxy.
 - Lambda artifacts need to be created in a S3 folder that follows the naming convention as described below
-  - Bucket name : <<var.environment>>-<<var.app>>-artifacts-bucket"
-    - e.g. dev-myapp-artifacts-bucket
-  - S3 key for the specific api lambda : api-artifacts/api-<<var.api_name>>-<<var.api_version>>.zip
-    - e.g. api-artifacts/api-sample-71f290b6c769333d129921d1a63578069757f5f0.zip
+
+Item | Format
+--- | ---
+Bucket name | <<var.environment>>-<<var.app>>-artifacts-bucket<br />e.g. dev-myapp-artifacts-bucket
+S3 key for the specific api lambda | api-artifacts/api-<<var.api_name>>-<<var.api_version>>.zip<br />e.g. api-artifacts/api-sample-71f290b6c769333d129921d1a63578069757f5f0.zip
 
 ## What does this script create
 - API GW.
@@ -29,41 +30,25 @@ API Gateway -> Lambda -> Database with RDS proxy, fully terraformed.
 ## Create a terraform workspace and set the following variables. 
 You can also create a .tfvars file in your repo to set the versions and other static defaults. Passwords should be set as sensitive variables accessible to the terraform workspace.
 
-### environment 
-Environment Name (dev/test/uat etc)
-
-### app
-Application unique name
-
-### vpc_id
-VPC Id
-
-### subnet_ids
-Public subnet ids as list
-
-### private_subnet_ids
-Private subnet ids as list
-
-### database
-Database name
-
-### db_host
-Database host (or db proxy host)
-
-### db_port
-Database port (or db proxy port)
-
-### db_username
-Database username
-
-### db_password
-Database password (for password based auth)
-
-### sample_api_version
-Api version of sample api (GIT SHA of each api lambda)
+Variable Name | Description
+--- | ---
+environment | Environment Name (dev/test/uat etc)
+app | Application unique name
+vpc_id | VPC Id
+subnet_ids | Public subnet ids as list
+private_subnet_ids | Private subnet ids as list
+database | Database name
+db_host | Database host (or db proxy host)
+db_port | Database port (or db proxy port)
+db_username | Database username
+db_password | Database password (for password based auth)
+sample_api_version | Api version of sample api (GIT SHA of each api lambda)
 
 
-## To add more apis simply extend the map in the meta.tf by adding the api meta block as needed and add respective versions to the workspace or your tfvars file.
+## How to add APIs
+
+To add more apis simply extend the map in the meta.tf by adding the api meta block as needed and add respective versions to the workspace or your tfvars file.
+
 ```
     login : {
       "method" : "POST",

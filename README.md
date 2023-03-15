@@ -3,8 +3,17 @@ API Gateway -> Lambda -> Database with RDS proxy, fully terraformed.
 
 
 ## Prerequisites
-- Create a VPC with private and public subnets
-- Create a database and database proxy
+- Create a VPC with private and public subnets.
+- Create a database and database proxy.
+
+## What does this script create
+- API GW.
+- API GW Stage.
+- Lambdas.
+- API GW and Lambda Proxy integration.
+- API is a module with lambda so additional APIs can be created easily.
+- NAT gateway with spot instances. If you have NAT already you can remove it from the code.
+- Support for nested APIs will be added soon.
 
 
 ## Create a terraform workspace and set the following variables. 

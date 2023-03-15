@@ -9,6 +9,11 @@ API Gateway -> Lambda -> Database with RDS proxy, fully terraformed.
 ## Prerequisites
 - Create a VPC with private and public subnets.
 - Create a database and database proxy.
+- Lambda artifacts need to be created in a S3 folder that follows the naming convention as described below
+  - Bucket name : <<var.environment>>-<<var.app>>-artifacts-bucket"
+    - e.g. dev-myapp-artifacts-bucket
+  - S3 key for the specific api lambda : api-artifacts/api-<<var.api_name>>-<<var.api_version>>.zip
+    - e.g. api-artifacts/api-sample-71f290b6c769333d129921d1a63578069757f5f0.zip
 
 ## What does this script create
 - API GW.

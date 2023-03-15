@@ -56,19 +56,21 @@ resource "aws_api_gateway_method_settings" "settings" {
   }
 }
 
-module "sample_api" {
+module "api" {
+  for_each                     = local.apis
+
   source                       = "./api/"
   app                          = var.app
   environment                  = var.environment
   subnet_ids                   = var.private_subnet_ids
   vpc_id                       = var.vpc_id
   app_sg_id                    = aws_security_group.app_lambda_sg.id
-  api_name                     = "sample"
-  api_version                  = var.sample_api_version
+  api_name                     = each.key
+  api_version                  = each.value["api_version"]
   lb_port                      = var.lb_port
   lb_protocol                  = var.lb_protocol
   api_gateway_execution_arn    = aws_api_gateway_rest_api.api-gateway.execution_arn
-  method                       = "POST"
+  method                       = each.value["method"]
   rest_api_id                  = aws_api_gateway_rest_api.api-gateway.id
   rest_api_root_resource_id    = aws_api_gateway_rest_api.api-gateway.root_resource_id
   db_host                      = var.db_host

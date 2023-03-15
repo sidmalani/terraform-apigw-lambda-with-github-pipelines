@@ -12,9 +12,13 @@ variable "private_subnet_ids" {
   type = list
 }
 
-variable "lb_port" {}
+variable "lb_port" {
+  default = 443
+}
 
-variable "lb_protocol" {}
+variable "lb_protocol" {
+  default = "TCP"
+}
 
 # Database host
 variable "db_host" {}

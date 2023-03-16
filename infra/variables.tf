@@ -36,3 +36,16 @@ variable "db_password" {}
 
 # Create a sample api lambda and supply version here
 variable "sample_api_version" {}
+
+# Enable Spot Instance based NAT
+variable "nat_enabled" {
+  default = 0
+}
+
+variable "private_subnet_cidrs" {
+  type = list(string)
+}
+
+variable "private_route_table_ids" {
+  type = list(string)
+}

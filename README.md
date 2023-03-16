@@ -31,9 +31,21 @@ S3 key for the specific api lambda | api-artifacts/api-<<var.api_name>>-<<var.ap
 ## Create a terraform workspace and set the following variables. 
 You can also create a .tfvars file in your repo to set the versions and other static defaults. Passwords should be set as sensitive variables accessible to the terraform workspace.
 
+### Following variables should be set in workspace variables
+
+Variable Name | Description | Type
+--- | --- | ---
+environment | Environment Name (dev/test/uat etc) | -
+AWS_ACCESS_KEY_ID | Terraform user access key id | sensitive
+AWS_SECRET_ACCESS_KEY | Terraform user secret | sensitive
+AWS_DEFAULT_REGION | Default AWS region | sensitive
+db_password | Database password (for password based auth) | sensitive
+
+### Following variables can be set as workspace variables or in tfvars file. You can specify the file location by setting the optional variable described below.
+
 Variable Name | Description
 --- | ---
-environment | Environment Name (dev/test/uat etc)
+TF_CLI_ARGS_plan | Optionally you can set this to the file name where all variables below as HCL variable pairs.<br />E.g. -var-file="env/dev.terraform.tfvars" <br />env/dev.terraform.tfvars, env/test.terraform.tfvars etc.
 app | Application unique name
 vpc_id | VPC Id
 subnet_ids | Public subnet ids as list
@@ -42,7 +54,7 @@ database | Database name
 db_host | Database host (or db proxy host)
 db_port | Database port (or db proxy port)
 db_username | Database username
-db_password | Database password (for password based auth)
+
 sample_api_version | Api version of sample api (GIT SHA of each api lambda)
 
 For NAT only

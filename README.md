@@ -45,6 +45,13 @@ db_username | Database username
 db_password | Database password (for password based auth)
 sample_api_version | Api version of sample api (GIT SHA of each api lambda)
 
+For NAT only
+
+Variable Name | Description
+--- | ---
+nat_enabled | 0 or 1 - to enable NAT
+private_subnet_cidrs | Private subnet CIDRs as a list
+private_route_table_ids | Private Route Table IDs as list
 
 ## How to add APIs
 
